@@ -47,7 +47,7 @@ public class SearchAnswererImpl implements SearchAnswererService {
             }
         }catch (Exception e){
             e.printStackTrace();
-            return null;
+            return answererInfos;
         }
 
         return answererInfos;
@@ -61,7 +61,7 @@ public class SearchAnswererImpl implements SearchAnswererService {
             re = getAllAnswerer(mid+"");
         }catch (Exception e){
             e.printStackTrace();
-            return null;
+            return new ArrayList<>();
         }
         return re;
     }
