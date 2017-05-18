@@ -1,0 +1,61 @@
+.weui-btn {
+    font-size: 16px;
+}
+
+.weui-media-box__desc{
+    font-size: 14px;
+    line-height: 1.7;
+     overflow: visible;
+    /* text-overflow: ellipsis; */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    white-space:normal;
+}
+
+.weui-media-box__desc.description{
+    margin-top:3px;
+    line-height: 1.2;
+}
+
+.lecture-interest-num-p{
+    margin-top: 5px;
+    color:#666666;
+}
+
+.lecture-interest-num{
+    margin:0 5px;
+    color: #54bc37;
+    font-size: 20px;
+}
+
+.buttons{
+    width: 100%;
+    background-color: #fff;
+    z-index: 5;
+    text-align: center;
+}
+
+html, body,#wrap {
+    height: 100%;
+}
+body > #wrap {
+    height: auto;
+    min-height: 100%;
+}
+#main {
+    padding-bottom: 45px;
+}  /* 必须使用和footer相同的高度 */
+#footer {
+    position: relative;
+    margin-top: -45px; /* footer高度的负值 */
+    height: 45px;
+    clear:both;
+}
+
+.interest-button{
+    width: 26px;
+    height:26px;
+    float: right;
+    margin-top: 3px;
+    margin-right: 10px;
+}

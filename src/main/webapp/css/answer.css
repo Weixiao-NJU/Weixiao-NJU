@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+
+*{
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+}
+.cell_question_q{
+    padding: 10px 5px 0 15px;
+    float:left;
+}
+
+
+.cell_question_q .q_title{
+    min-width: 73px;
+}
+.cell_question_q img{
+    float:left;
+}
+
+#questionContent{
+    padding: 10px 5px 10px 15px;
+    text-align: left;
+    color: #999999;
+}
+
+#func_div{
+    width:100%;
+    height:30px;
+}
+
+#func_div .forward{
+    display: block;
+    color: #586C94;
+    padding: 5px 8px 0 5px;
+}
+
+#func_div span{
+    display: block;
+    padding: 5px 5px 0 8px;
+    color:#999999;
+}
+
+
+
+

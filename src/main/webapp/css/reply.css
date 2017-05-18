@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+*{
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+}
+.cell_question_q{
+    padding: 10px 5px 0 15px;
+    float:left;
+}
+
+
+.cell_question_q .q_title{
+    min-width: 73px;
+}
+.cell_question_q img{
+    float:left;
+}
+
+.questionContent{
+    padding: 10px 5px 10px 15px;
+    text-align: left;
+    color: #999999;
+}
+
+.weui-cell{
+    clear: both;
+}

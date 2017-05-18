@@ -1,22 +1,48 @@
-# Compiled class file
-*.class
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
 
-# Log file
-*.log
+# Folder config file
+Desktop.ini
 
-# BlueJ files
-*.ctxt
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
 
-# Package Files #
-*.jar
-*.war
-*.ear
-*.zip
-*.tar.gz
-*.rar
+# Windows shortcuts
+*.lnk
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+
+# Files that might appear on external disk
+
+
+# Directories potentially created on remote AFP share
+.idea/*
+target/*
+*.iml
+
+#config
+src/main/resources/jdbc.properties
+src/main/resources/log4j.properties
+src/test/resources/jdbc.properties
+src/test/resources/log4j.properties
+src/main/resources/turingkey.properties
+src/test/resources/turingkey.properties
+src/main/webapp/WEB-INF/web.xml

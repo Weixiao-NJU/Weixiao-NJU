@@ -1,0 +1,225 @@
+@CHARSET "UTF-8";
+
+body{
+    font-family: "Microsoft Yahei", "helvetica", "Arial";
+    font-size: 16px;
+}
+
+label{
+    font-weight: normal;
+}
+
+#tab{
+    margin:0 60px;
+}
+
+th{
+    font-weight: normal;
+}
+
+#test_media10{
+    line-height: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    padding: 0 5px;
+    color: #333;
+    width: 40px;
+    font-family: "Microsoft YaHei", "Arial";
+}
+
+#test_media11,#test_media101,#test_media111{
+
+}
+
+.wx-form-input1{
+    line-height: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    padding: 0 5px;
+    color: #333;
+    width: 40px;
+    font-family: "Microsoft YaHei", "Arial";
+    text-align: center;
+}
+
+.wx-app-type1{
+    font-size: 16px;
+    color: #979797;
+    line-height: 36px;
+    font-weight: normal;
+    display: inline-block;
+    float: left;
+    width: 92px !important;
+    text-align: right;
+}
+
+
+.wx-upload{
+    display: inline-block;
+    position: relative;
+    width: 78px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 2px;
+    color: #000;
+    background: #ffffff;
+    text-align: center;
+    font-size: 15px;
+    border: 1px solid #ddd;
+}
+.wx-upload:hover{
+    cursor: pointer;
+}
+.wx-upload-input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.wx-upload-input::-webkit-file-upload-button{
+    cursor: pointer;
+}
+
+.wx-btn-small1 {
+    width: 95px;
+    height: 31px;
+    font-family: "Microsoft YaHei", "Arial";
+    font-size: 16px;
+    position: absolute;
+    left: 35px;
+    top: 0px;
+}
+
+.table-question{
+    width:35%;
+}
+
+.table-answer{
+    width:50%;
+}
+@media screen and (min-width: 800px){
+    .table-operation {
+        width: 150px;
+    }
+}
+
+
+.modify-button{
+    display: inline-block;
+    border: 0;
+    outline: 0;
+    background: #35b36a;
+    color: white;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.delete-button{
+    display: inline-block;
+    border: 0;
+    outline: 0;
+    background: rgb(153, 226, 234);
+    color: white;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.modify-answer-div,.add-answer-div{
+    position:absolute;
+    width:410px;
+    height:320px;
+    left:35%;
+    top:500px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    display: none;
+}
+
+.modify-qa-div,.add-qa-div{
+    position:absolute;
+    width:410px;
+    height:340px;
+    left:35%;
+    top:480px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    display: none;
+}
+
+.wx-form-input2{
+    line-height: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    padding: 0 5px;
+    color: #333;
+    width: 240px;
+    font-family: "Microsoft YaHei", "Arial";
+}
+
+.wx-control-label2{
+    display: inline-block;
+    float: left;
+    width: 100px !important;
+    text-align: right;
+}
+
+.wx-control-label3{
+    display: inline-block;
+    float: left;
+    width: 80px !important;
+    text-align: right;
+}
+
+.wx-form-content1{
+    margin-left: 130px;
+    position: relative;
+}
+
+.wx-form-content2{
+    margin-left: 105px;
+    position: relative;
+}
+
+.btn-modify{
+    margin-left:85px !important;
+}
+
+.btn-delete{
+    margin-left: 40px !important;
+}
+
+.addButton{
+    float:right;
+    margin-right: 2.9%;
+    margin-top: -7px;
+    margin-bottom: -7px;
+}
+
+.wx-form-textarea{
+    border: 1px solid #ddd;
+    padding: 0 5px;
+    color: #333;
+    font-family: "Microsoft YaHei", "Arial";
+    resize:none;
+}
+
+#loading{
+    width: 100%;
+    text-align: center;
+}
+
+#loading img{
+    width:400px;
+    height:300px;
+    margin: 0 auto;
+}
+

@@ -1,0 +1,20 @@
+.header{
+    background-color: #18b4ed;
+}
+
+.header-p{
+    color: #fff;
+    padding: 8px 15px;
+    font-size: 17px;
+}
+.weui-cell_access{
+    /*display: block;*/
+}
+
+.weui-cell-bd-text{
+    min-width: 56px;
+}
+.weui-title-right{
+    text-align: left;
+}
+
