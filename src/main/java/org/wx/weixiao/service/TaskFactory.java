@@ -81,10 +81,10 @@ public class TaskFactory {
         try {
             return TaskBuilder.createBuilder()
                     .setName(EMAIL_TASK_NAME)
-                    .addTask(()->lectureTimerService.emailSubscribers(1000*24*60*60))
+                    .addTask(()->lectureTimerService.emailSubscribers(1000*60*61))
                     .asRepeatableTask()
                     .firstRunDateTime(LocalDateTime.now())
-                    .frequency(1, TimeUnit.DAYS)
+                    .frequency(1, TimeUnit.HOURS)
                     .build();
         }catch (Exception e) {
             e.printStackTrace();
