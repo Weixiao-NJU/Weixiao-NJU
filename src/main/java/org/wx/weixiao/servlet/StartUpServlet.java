@@ -39,7 +39,7 @@ public class StartUpServlet extends HttpServlet {
         TaskEntity timerEmail = TaskFactory.createLectureEmailTask();
         TaskEntity lectureUpdate = TaskFactory.createLectureUpdateTask();
         TaskManager.registerTask(timerEmail);
-        TaskManager.registerTask(lectureUpdate);
+//        TaskManager.registerTask(lectureUpdate);
 
         TaskManager.setLogger(Logger.getLogger(TaskManager.class));
         TaskManager.scheduleMonitor();
