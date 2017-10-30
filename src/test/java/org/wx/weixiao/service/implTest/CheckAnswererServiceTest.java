@@ -1,11 +1,9 @@
-import org.hibernate.SessionFactory;
+package org.wx.weixiao.service.implTest;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.wx.weixiao.dao.AnswererDao;
-import org.wx.weixiao.model.Answerer;
 import org.wx.weixiao.service.CheckAnswererService;
-import org.wx.weixiao.service.impl.CheckAnswerImpl;
 
 /**
  * Created by lizhimu on 2016/12/28.

@@ -1,4 +1,4 @@
-package org.wx.weixiao;
+package org.wx.weixiao.service.implTest;
 
 import com.google.gson.Gson;
 import org.junit.Before;

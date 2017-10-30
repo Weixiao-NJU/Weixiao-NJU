@@ -2,7 +2,6 @@ package org.wx.weixiao.service.implTest;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.wx.weixiao.service.impl.ImportAnswererImpl;
 
@@ -29,13 +28,13 @@ public class ImportAnswererImplTest {
     public void after() throws Exception {
     }
 
-    /**
-     * Method: importAnswererInfo(String file_dir)
-     */
-    @Test
-    public void testImportAnswererInfo() throws Exception {
-        importAnswerer.importAnswererInfo("D:/NJU.xlsx");
-    }
+//    /**
+//     * Method: importAnswererInfo(String file_dir)
+//     */
+//    @Test
+//    public void testImportAnswererInfo() throws Exception {
+//        importAnswerer.importAnswererInfo("D:/NJU.xlsx");
+//    }
 
 
 } 

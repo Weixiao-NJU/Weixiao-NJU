@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.wx.weixiao.dao.ConstParametersDao;
 import org.wx.weixiao.dao.MediaInfoDAO;
-import org.wx.weixiao.model.ConstParameters;
 
 /**
  * ConstParametersDao Tester.
@@ -35,14 +34,14 @@ public class ConstParametersDaoTest {
     /**
      * Method: setTime(String startTime, String endTime, String mediaId)
      */
-    @Test
-    public void testSetTime() throws Exception {
-        ConstParameters constParameters = new ConstParameters();
-        constParameters.setMediaInfo(mediaInfoDAO.get(1));
-        constParameters.setWork_time_start("07:00");
-        constParameters.setWork_time_end("08:00");
-        constParametersDao.save(constParameters);
-    }
+//    @Test
+//    public void testSetTime() throws Exception {
+//        ConstParameters constParameters = new ConstParameters();
+//        constParameters.setMediaInfo(mediaInfoDAO.get(1));
+//        constParameters.setWork_time_start("07:00");
+//        constParameters.setWork_time_end("08:00");
+//        constParametersDao.save(constParameters);
+//    }
 
     /**
      * Method: readParameters(String mediaId)

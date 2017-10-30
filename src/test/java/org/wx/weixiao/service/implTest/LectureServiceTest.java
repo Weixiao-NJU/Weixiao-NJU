@@ -1,9 +1,10 @@
+package org.wx.weixiao.service.implTest;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 import org.wx.weixiao.Info.LectureInfo;
-import org.wx.weixiao.Info.LectureSubscriberInfo;
 import org.wx.weixiao.service.LectureService;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package org.wx.weixiao;
+package org.wx.weixiao.service.implTest;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -41,20 +41,20 @@ public class SearchAnswererServiceTest {
 //        System.out.println(service.updateAnswerer(ans));
 //    }
 
-    @Test
-    public void testAdd(){
-        AnswererInfo ans = new AnswererInfo();
-        ans.setDepartment("教务处");
-        List<String> key = new ArrayList<>();
-        key.add("test1");
-        key.add("test3");
-        ans.setKeyword(key);
-        ans.setName("张三");
-        ans.setTelephone("123444");
-        ans.setAccountStr("xx");
-
-
-        System.out.println(service.addAnswerer(ans));
-    }
+//    @Test
+//    public void testAdd(){
+//        AnswererInfo ans = new AnswererInfo();
+//        ans.setDepartment("教务处");
+//        List<String> key = new ArrayList<>();
+//        key.add("test1");
+//        key.add("test3");
+//        ans.setKeyword(key);
+//        ans.setName("张三");
+//        ans.setTelephone("123444");
+//        ans.setAccountStr("xx");
+//
+//
+//        System.out.println(service.addAnswerer(ans));
+//    }
 
 }

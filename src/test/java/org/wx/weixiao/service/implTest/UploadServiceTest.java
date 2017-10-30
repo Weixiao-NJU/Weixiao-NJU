@@ -1,9 +1,8 @@
-package org.wx.weixiao;
+package org.wx.weixiao.service.implTest;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.wx.weixiao.service.CheckAnswererService;
 import org.wx.weixiao.service.UploadService;
 
 /**

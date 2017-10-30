@@ -1,4 +1,4 @@
-package org.wx.weixiao;
+package org.wx.weixiao.service.implTest;
 
 import org.junit.Before;
 import org.junit.Test;

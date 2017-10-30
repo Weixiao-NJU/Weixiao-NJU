@@ -1,10 +1,9 @@
+package org.wx.weixiao.service.implTest;
+
 import org.junit.Before;
-import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
-import org.wx.weixiao.service.CheckAnswererService;
 import org.wx.weixiao.service.ImportAnswererService;
-import org.wx.weixiao.service.impl.ImportAnswererImpl;
 
 /**
  * Created by lizhimu on 2016/12/28.
@@ -20,9 +19,9 @@ public class ImportAnswererServiceTest {
         this.service=(ImportAnswererService) context.getBean("ImportAnswererService");
 
     }
-    @Test
-    public void test() {
-
-        service.importAnswererInfo("D:/excelTest/excel/副本.xlsx");
-    }
+//    @Test
+//    public void test() {
+//
+//        service.importAnswererInfo("D:/excelTest/excel/副本.xlsx");
+//    }
 }

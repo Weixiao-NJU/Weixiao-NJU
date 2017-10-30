@@ -5,9 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.wx.weixiao.dao.LectureDao;
-import org.wx.weixiao.model.Lecture;
-
-import java.util.List;
 
 /**
  * LectureDao Tester.
@@ -87,19 +84,19 @@ public class LectureDaoTest {
 //TODO: Test goes here... 
     }
 
-    /**
-     * Method: interest(int lid)
-     */
-    @Test
-    public void testInterest() throws Exception {
-        List<Lecture> list=lectureDao.getListByColumnValue("lid",1);
-        if(!list.isEmpty()){
-            Lecture l=list.get(0);
-            l.setInterestNum(l.getInterestNum()+1);
-            System.out.println(l.getTitle()+","+l.getInterestNum());
-            lectureDao.saveOrUpdate(l);
-        }
-    }
+//    /**
+//     * Method: interest(int lid)
+//     */
+//    @Test
+//    public void testInterest() throws Exception {
+//        List<Lecture> list=lectureDao.getListByColumnValue("lid",1);
+//        if(!list.isEmpty()){
+//            Lecture l=list.get(0);
+//            l.setInterestNum(l.getInterestNum()+1);
+//            System.out.println(l.getTitle()+","+l.getInterestNum());
+//            lectureDao.saveOrUpdate(l);
+//        }
+//    }
 
 
 } 
