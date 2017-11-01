@@ -164,6 +164,7 @@ public abstract class AbstractHandler implements Handler {
                     }
 
                 } else {
+                    logger.error("request interface failed, Interval is not between 0 and 100. Interval : "+interval);
                     rmsg.setCodeAndMsg(ErrorCodeUtil.INTERFACE_FAILED, "request interface failed");
                 }
             } else {
