@@ -2,7 +2,6 @@ package org.wx.weixiao.servlet;
 
 import com.google.gson.Gson;
 import org.apache.log4j.Logger;
-import org.wx.weixiao.common.LoggerManager;
 import org.wx.weixiao.util.CommonUtil;
 import org.wx.weixiao.util.NameUtil;
 
@@ -26,7 +25,7 @@ public class Util {
     public static void analyseParameters(HttpServletRequest request) {
         Map<String, String> parameters = new HashMap<>();
         String jsonInput = "";
-        String logMess = "original parameters:\n";
+        String logMess = "Original Parameters:\n";
         for (Object obj : request.getParameterMap().keySet()) {
             logMess += obj + "=" + new Gson().toJson(request.getParameterMap().get(obj)) + "\n";
             if (!CommonUtil.isJson((String) obj)) {
@@ -48,8 +47,8 @@ public class Util {
         }
         parameters.remove("type");
         request.setAttribute(NameUtil.PARAMETERS, parameters);
-        logMess += "parameters:\n" + new Gson().toJson(parameters);
+        logMess += "After Processing Parameters:" + new Gson().toJson(parameters);
 
-        LoggerManager.info(logger, logMess);
+        logger.info(logMess);
     }
 }

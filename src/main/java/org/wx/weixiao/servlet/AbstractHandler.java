@@ -142,7 +142,10 @@ public abstract class AbstractHandler implements Handler {
             String calSign = SignUtil.getSinature(parameters, config.getApiSecret());
             logger.info("CalSign is :"+calSign + "; Send Sign is" + sign);
             if (calSign != null && sign != null && sign.equals(calSign)) {
-                long interval = System.currentTimeMillis() / 1000 - Long.valueOf(parameters.get(NameUtil.TIMESTAMP));
+                Long localTime = Long.parseLong(String.valueOf(System.currentTimeMillis()).toString().substring(0, 10));
+                Long wxTime = Long.valueOf(parameters.get(NameUtil.TIMESTAMP));
+                long interval = localTime - wxTime;
+                //long interval = System.currentTimeMillis() / 1000 - Long.valueOf(parameters.get(NameUtil.TIMESTAMP));
                 if (interval >= 0 && interval < 10) {
                     String mediaId = parameters.get(NameUtil.MEDIAID);
                     switch (type) {
