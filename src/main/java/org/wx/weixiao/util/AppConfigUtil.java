@@ -25,8 +25,8 @@ public class AppConfigUtil {
         //测试的时候由于没有初始化
         if (appConfig==null) {
             appConfig = new AppConfig();
-            appConfig.setApiKey("2B926F2C909A943E");
-            appConfig.setApiSecret("F22DC29E0BD53B0AF9E2CBA8F8E39EF6");
+            appConfig.setApiKey("6D951A0B1002B090");
+            appConfig.setApiSecret("60F270415B0B41987C30A7CF12C86FE0");
             appConfig.setToken("mytoken");
             configMap.put(appName, appConfig);
         }

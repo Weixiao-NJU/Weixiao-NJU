@@ -74,6 +74,10 @@ public class ErrorCodeUtil {
      * 问题没有在回答时间中，未被返回
      */
     public final static int QUESTION_NOT_DISPATCHED = 2701;
+    /**
+     * 无配置权限
+     */
+    public final static int CONFIGPERMISSION = 403;
 
 
 }

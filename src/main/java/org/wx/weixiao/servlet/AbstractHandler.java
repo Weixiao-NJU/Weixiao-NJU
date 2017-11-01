@@ -2,7 +2,6 @@ package org.wx.weixiao.servlet;
 
 import com.google.gson.Gson;
 import org.apache.log4j.Logger;
-import org.wx.weixiao.common.LoggerManager;
 import org.wx.weixiao.message.resp.RespMessage;
 import org.wx.weixiao.servlet.conf.AppConfig;
 import org.wx.weixiao.util.ErrorCodeUtil;
@@ -55,7 +54,7 @@ public abstract class AbstractHandler implements Handler {
         response.getWriter().println(msg);
         response.getWriter().flush();
 
-        LoggerManager.info(logger, "return:\n" + msg);
+        logger.info("return:\n" + msg);
 
     }
 
@@ -141,7 +140,7 @@ public abstract class AbstractHandler implements Handler {
             String sign = parameters.get(NameUtil.SIGNATURE);
             parameters.remove(NameUtil.SIGNATURE);
             String calSign = SignUtil.getSinature(parameters, config.getApiSecret());
-            System.out.println(calSign + "," + sign);
+            logger.info("CalSign is :"+calSign + "; Send Sign is" + sign);
             if (calSign != null && sign != null && sign.equals(calSign)) {
                 long interval = System.currentTimeMillis() / 1000 - Long.valueOf(parameters.get(NameUtil.TIMESTAMP));
                 if (interval >= 0 && interval < 10) {
