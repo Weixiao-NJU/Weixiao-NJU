@@ -54,7 +54,7 @@ public abstract class AbstractHandler implements Handler {
         response.getWriter().println(msg);
         response.getWriter().flush();
 
-        logger.info("return:\n" + msg);
+        logger.info("RETURN MESSAGE :" + msg);
 
     }
 
@@ -146,7 +146,7 @@ public abstract class AbstractHandler implements Handler {
                 Long wxTime = Long.valueOf(parameters.get(NameUtil.TIMESTAMP));
                 long interval = localTime - wxTime;
                 //long interval = System.currentTimeMillis() / 1000 - Long.valueOf(parameters.get(NameUtil.TIMESTAMP));
-                if (interval >= 0 && interval < 100) {
+                if ((interval >= 0 && interval < 10)||(interval <= 0 && interval >= -30)) {
                     String mediaId = parameters.get(NameUtil.MEDIAID);
                     switch (type) {
                         case TypeUtil.CLOSE:
@@ -164,10 +164,11 @@ public abstract class AbstractHandler implements Handler {
                     }
 
                 } else {
-                    logger.error("request interface failed, Interval is not between 0 and 100. Interval : "+interval);
+                    logger.error("Request interface failed, Interval is not between 0 and 100. Interval : "+interval);
                     rmsg.setCodeAndMsg(ErrorCodeUtil.INTERFACE_FAILED, "request interface failed");
                 }
             } else {
+                logger.error("SIGN WRONG");
                 rmsg.setCodeAndMsg(ErrorCodeUtil.SIGN_CHECK_FAILED, "sign wrong");
             }
         }
