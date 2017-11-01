@@ -146,7 +146,7 @@ public abstract class AbstractHandler implements Handler {
                 Long wxTime = Long.valueOf(parameters.get(NameUtil.TIMESTAMP));
                 long interval = localTime - wxTime;
                 //long interval = System.currentTimeMillis() / 1000 - Long.valueOf(parameters.get(NameUtil.TIMESTAMP));
-                if (interval >= 0 && interval < 10) {
+                if (interval >= 0 && interval < 100) {
                     String mediaId = parameters.get(NameUtil.MEDIAID);
                     switch (type) {
                         case TypeUtil.CLOSE:
