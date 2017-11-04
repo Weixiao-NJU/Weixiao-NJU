@@ -63,14 +63,14 @@ public class AllDispatchHandler extends AbstractHandler {
     @Override
     void configOperation(HttpServletRequest request, String mediaId, RespMessage rmsg, AppConfig
             config) {
-//        MediaInfo mediaInfo = DAOManager.mediaInfoDao.getByMediaId(mediaId);
-//        MediaInfo newMediaInfo = WeixiaoAPI.getMediaInfo(mediaId, config);
-//        if (mediaInfo != null) {
-//            newMediaInfo.setMid(mediaInfo.getMid());
-//        }
-//        request.getRequestDispatcher(String.format("%s/core/ask_config?media_id=%s", ServerUtil
-//                .SERVER_ADDRESS, mediaId));
-//        DAOManager.mediaInfoDao.saveOrUpdate(newMediaInfo);
+        MediaInfo mediaInfo = DAOManager.mediaInfoDao.getByMediaId(mediaId);
+        MediaInfo newMediaInfo = WeixiaoAPI.getMediaInfo(mediaId, config);
+        if (mediaInfo != null) {
+            newMediaInfo.setMid(mediaInfo.getMid());
+        }
+        request.getRequestDispatcher(String.format("%s/core/ask_config?media_id=%s", ServerUtil
+                .SERVER_ADDRESS, mediaId));
+        DAOManager.mediaInfoDao.saveOrUpdate(newMediaInfo);
         rmsg.setCodeAndMsg(ErrorCodeUtil.SUCCESS, "ok");
     }
 

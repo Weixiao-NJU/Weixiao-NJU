@@ -1,6 +1,5 @@
 package org.wx.weixiao.servlet;
 
-import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.wx.weixiao.dao.DAOManager;
@@ -36,13 +35,13 @@ public class StartUpServlet extends HttpServlet {
             TaskManager.registerTask(taskEntity);
         });
 
-        TaskEntity timerEmail = TaskFactory.createLectureEmailTask();
-        TaskEntity lectureUpdate = TaskFactory.createLectureUpdateTask();
-        TaskManager.registerTask(timerEmail);
+        //TaskEntity timerEmail = TaskFactory.createLectureEmailTask();
+        //TaskEntity lectureUpdate = TaskFactory.createLectureUpdateTask();
+        //TaskManager.registerTask(timerEmail);
 //        TaskManager.registerTask(lectureUpdate);
 
-        TaskManager.setLogger(Logger.getLogger(TaskManager.class));
-        TaskManager.scheduleMonitor();
+      //  TaskManager.setLogger(Logger.getLogger(TaskManager.class));
+      //  TaskManager.scheduleMonitor();
 
     }
 }
