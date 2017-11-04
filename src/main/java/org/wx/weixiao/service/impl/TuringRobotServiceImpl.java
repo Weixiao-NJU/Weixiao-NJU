@@ -2,6 +2,7 @@ package org.wx.weixiao.service.impl;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.wx.weixiao.dao.UserAccessTimeDao;
@@ -36,6 +37,8 @@ public class TuringRobotServiceImpl implements TuringRobotService {
     private TuringKeyGenerator turingKeyGenerator;
     @Autowired
     private UserAccessTimeDao userAccessTimeDao;
+
+    private static Logger logger= Logger.getLogger(TuringRobotServiceImpl.class);
     /**
      * 返回码与对应转换方式的表
      */

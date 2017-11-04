@@ -1,5 +1,7 @@
 package org.wx.weixiao.util;
 
+import okhttp3.*;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,6 +11,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class HttpRequestUtil {
     /**
@@ -19,7 +22,7 @@ public class HttpRequestUtil {
      * @return URL 所代表远程资源的响应结果
      */
     public static String sendGet(String url) {
-        return sendPost(url,System.getProperty("file.encoding"));
+        return sendPost(url,"UTF-8");
     }
 
     public static String sendGet(String url, String charset) {
@@ -77,10 +80,40 @@ public class HttpRequestUtil {
      * @return 所代表远程资源的响应结果
      */
     public static String sendPost(String url, String param) {
-        return sendPost(url, param, System.getProperty("file.encoding"));
+        return sendPost(url, param, "UTF-8");
+    }
+
+    public static String sendPostByOKHttp3(String url, String param){
+        //申明给服务端传递一个json串
+        //创建一个OkHttpClient对象
+        OkHttpClient okHttpClient = new OkHttpClient.Builder().connectTimeout(10, TimeUnit.SECONDS)
+                .readTimeout(20, TimeUnit.SECONDS)
+                .build();
+        //创建一个RequestBody(参数1：数据类型 参数2传递的json串)
+        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), param);
+        //创建一个请求对象
+        Request request = new Request.Builder()
+                .url(url)
+                .post(requestBody)
+                .build();
+        //发送请求获取响应
+        try {
+            Response response=okHttpClient.newCall(request).execute();
+            //判断请求是否成功
+            if(response.isSuccessful()){
+
+                return response.body().string();
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+
     }
 
     public static String sendPost(String url, String param, String charset) {
+
         PrintWriter out = null;
         BufferedReader in = null;
         String result = "";
@@ -138,7 +171,7 @@ public class HttpRequestUtil {
      * @return 所代表远程资源的响应结果
      */
     public static String sendJsonPost(String url, String param) {
-        return sendJsonPost(url, param, System.getProperty("file.encoding"));
+        return sendJsonPost(url, param, "utf-8");
     }
     public static String sendJsonPost(String url, String param, String charset) {
         PrintWriter out = null;
@@ -173,7 +206,7 @@ public class HttpRequestUtil {
             out.close();
             // 定义BufferedReader输入流来读取URL的响应
             in = new BufferedReader(
-                    new InputStreamReader(conn.getInputStream()));
+                    new InputStreamReader(conn.getInputStream(),"UTF-8"));
             String line;
             while ((line = in.readLine()) != null) {
                 result += line;
@@ -197,4 +230,10 @@ public class HttpRequestUtil {
         }
         return result;
     }
+
+    public static void main(String args[]){
+        String re =HttpRequestUtil.sendPostByOKHttp3("http://www.tuling123.com/openapi/api","{\"key\":\"81a3a2c6fd1c47679c3c01042c43eeeb\",\"info\":\"你是谁\",\"userid\":\"test\"}");
+        System.out.println(re);
+    }
+
 }

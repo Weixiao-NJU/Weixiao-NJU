@@ -22,6 +22,7 @@ public class HelloWorld1 {
 
     @RequestMapping("/hello1")
     public ModelAndView hello(@RequestParam(value = "id", defaultValue = "guest") String id) {
+        System.out.println(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("hello");
         Map<String, String> paras = new HashMap<>();

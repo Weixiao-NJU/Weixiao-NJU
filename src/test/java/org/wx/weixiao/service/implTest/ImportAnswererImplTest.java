@@ -1,10 +1,5 @@
 package org.wx.weixiao.service.implTest;
 
-import org.junit.After;
-import org.junit.Before;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.wx.weixiao.service.impl.ImportAnswererImpl;
-
 /**
  * ImportAnswererImpl Tester.
  *
@@ -14,19 +9,19 @@ import org.wx.weixiao.service.impl.ImportAnswererImpl;
  */
 public class ImportAnswererImplTest {
 
-    ImportAnswererImpl importAnswerer;
-
-    @Before
-    public void before() throws Exception {
-        ClassPathXmlApplicationContext cxt = new ClassPathXmlApplicationContext
-                ("applicationContext.xml");
-        cxt.start();
-        importAnswerer = cxt.getBean(ImportAnswererImpl.class);
-    }
-
-    @After
-    public void after() throws Exception {
-    }
+//    ImportAnswererImpl importAnswerer;
+//
+//    @Before
+//    public void before() throws Exception {
+//        ClassPathXmlApplicationContext cxt = new ClassPathXmlApplicationContext
+//                ("applicationContext.xml");
+//        cxt.start();
+//        importAnswerer = cxt.getBean(ImportAnswererImpl.class);
+//    }
+//
+//    @After
+//    public void after() throws Exception {
+//    }
 
 //    /**
 //     * Method: importAnswererInfo(String file_dir)

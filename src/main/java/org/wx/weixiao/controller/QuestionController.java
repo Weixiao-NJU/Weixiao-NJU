@@ -51,7 +51,7 @@ public class QuestionController {
     public ModelAndView submitQuestion(HttpServletRequest request, HttpServletResponse response) {
         try {
             request.setCharacterEncoding("UTF-8");
-            request.setCharacterEncoding("UTF-8");
+            response.setCharacterEncoding("UTF-8");
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
