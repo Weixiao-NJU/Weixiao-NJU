@@ -42,7 +42,7 @@ public class WeixiaoAPI {
         sendPara.put("api_key", appConfig.getApiKey());
         sendPara.put("media_id", media_id);
         sendPara.put("nonce_str", CommonUtil.randomString(32));
-        sendPara.put("timestamp", String.valueOf((System.currentTimeMillis() / 1000)+20));
+        sendPara.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         String sign = SignUtil.getSinature(sendPara, appConfig.getApiSecret());
         sendPara.put("sign", sign);
         String paralog = new Gson().toJson(sendPara);
