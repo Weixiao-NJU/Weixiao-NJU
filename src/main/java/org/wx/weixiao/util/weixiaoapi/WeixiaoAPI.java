@@ -3,6 +3,7 @@ package org.wx.weixiao.util.weixiaoapi;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import org.apache.log4j.Logger;
 import org.wx.weixiao.Info.StudentInfo;
 import org.wx.weixiao.model.MediaInfo;
 import org.wx.weixiao.servlet.conf.AppConfig;
@@ -19,6 +20,8 @@ import java.util.Map;
 public class WeixiaoAPI {
     private static final String USER_INFO_URL = "http://weixiao.qq.com/open/identity/user_info";
     private static final String MEDIA_INFO_URL = "http://weixiao.qq.com/common/get_media_info";
+    private static Logger logger= Logger.getLogger(WeixiaoAPI.class);
+
 
     public static StudentInfo getStudentInfo(String code, AppConfig appConfig) {
         Map<String, String> sendPara = new HashMap<>();
@@ -42,10 +45,10 @@ public class WeixiaoAPI {
         sendPara.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         String sign = SignUtil.getSinature(sendPara, appConfig.getApiSecret());
         sendPara.put("sign", sign);
-        System.out.println(new Gson().toJson(sendPara));
+        String paralog = new Gson().toJson(sendPara);
         String result = HttpRequestUtil.sendPost(MEDIA_INFO_URL, new Gson().toJson(sendPara));
         JsonObject jsonObject = new JsonParser().parse(result).getAsJsonObject();
-        System.out.println(jsonObject.toString());
+        logger.info("ParaLog : "+paralog+"; Result Msg: "+jsonObject.toString());
         MediaInfo mediaInfo = new MediaInfo();
         mediaInfo.setIsDelete(0);
         mediaInfo.setMediaId(media_id);
