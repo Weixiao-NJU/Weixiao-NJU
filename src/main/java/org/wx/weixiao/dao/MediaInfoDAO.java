@@ -19,7 +19,7 @@ public class MediaInfoDAO extends BaseDao<MediaInfo, Integer> {
 
 
     public MediaInfo getByMediaId(String media_id) {
-        return getByHQL("from MediaInfo where mediaId=?", media_id);
+        return getByHQL("from MediaInfo where mediaId=? and isDelete=0", media_id);
     }
 
     public List<MediaInfo> getMediaInfos() {
