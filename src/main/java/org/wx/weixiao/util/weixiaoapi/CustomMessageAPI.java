@@ -57,7 +57,7 @@ public class CustomMessageAPI {
     protected static CustomMessageResponse sendMessage(CustomMessage message) {
         Gson gson = new Gson();
         System.out.println(gson.toJson(message));
-        String result = HttpRequestUtil.sendPost(CUSTOM_MESSAGE_URL, gson.toJson(message));
+        String result = HttpRequestUtil.sendPostJSONByOKHttp3(CUSTOM_MESSAGE_URL, gson.toJson(message));
         CustomMessageResponse response = gson.fromJson(result, CustomMessageResponse.class);
         return response;
     }
