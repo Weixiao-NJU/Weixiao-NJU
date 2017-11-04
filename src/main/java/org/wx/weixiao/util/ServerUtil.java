@@ -6,6 +6,6 @@ package org.wx.weixiao.util;
 public class ServerUtil {
   //  public static final String SERVER_ADDRESS = "zhouhangxx.3322.org";
 
-    public static final String SERVER_ADDRESS = "jw.mooctest.net";
+    public static final String SERVER_ADDRESS = "219.219.120.44";
 
 }

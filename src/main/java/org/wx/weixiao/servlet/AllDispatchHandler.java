@@ -9,6 +9,7 @@ import org.wx.weixiao.service.AllDispatchCoreService;
 import org.wx.weixiao.servlet.conf.AppConfig;
 import org.wx.weixiao.util.ErrorCodeUtil;
 import org.wx.weixiao.util.NameUtil;
+import org.wx.weixiao.util.ServerUtil;
 import org.wx.weixiao.util.weixiaoapi.WeixiaoAPI;
 
 import javax.servlet.http.HttpServletRequest;
