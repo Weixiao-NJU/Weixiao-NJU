@@ -126,6 +126,7 @@ public class HttpRequestUtil {
             URLConnection conn = realUrl.openConnection();
             // 设置通用的请求属性
             conn.setRequestProperty("accept", "*/*");
+            conn.setRequestProperty("Charset", "UTF-8");
             conn.setRequestProperty("connection", "Keep-Alive");
             conn.setRequestProperty("user-agent",
                     "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
@@ -233,6 +234,6 @@ public class HttpRequestUtil {
         }
         return result;
     }
-    
+
 
 }

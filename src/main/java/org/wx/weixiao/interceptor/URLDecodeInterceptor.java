@@ -21,13 +21,11 @@ public class URLDecodeInterceptor implements HandlerInterceptor {
 
         try {
             String code = httpServletRequest.getParameter("encrypt").replace(' ','+');
-            System.out.println("---------------------Analysis Data--------------------"+code);
             Map<String,String> parameters = SecurityUtil.decodeAsMap(code, AppConfigUtil.get(AppConfigUtil.ALLDISPATCH).getToken());
             if(parameters == null)
                 return false;
             for(Map.Entry<String,String> para : parameters.entrySet()){
                 httpServletRequest.setAttribute(para.getKey(),para.getValue());
-                System.out.println(para.getKey()+"  =========  "+para.getValue());
                 //如果想修改需要重写HttpServletRequestWrapper
                 //httpServletRequest.getParameterMap().put(para.getKey(),new String[]{para.getValue()});
             }
