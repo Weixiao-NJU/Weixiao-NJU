@@ -1,6 +1,7 @@
 package org.wx.weixiao.service.impl;
 
 import com.google.gson.Gson;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.wx.weixiao.dao.DAOManager;
@@ -30,6 +31,8 @@ import java.util.function.Function;
 @Component("AllDispatchCoreService")
 public class AllDispatchCoreImpl implements AllDispatchCoreService {
 
+
+    private static Logger logger= Logger.getLogger(AllDispatchCoreImpl.class);
     @Autowired
     private KnowledgeBaseService searchQuestion;
     @Autowired
@@ -80,6 +83,7 @@ public class AllDispatchCoreImpl implements AllDispatchCoreService {
             Map<String, String> parameters = MessageUtil.parseXml(request);
             return handleInput(parameters);
         } catch (Exception e) {
+            logger.error("Exception happens here :"+e.getMessage());
             e.printStackTrace();
         }
         return null;
@@ -93,7 +97,7 @@ public class AllDispatchCoreImpl implements AllDispatchCoreService {
      */
     public String handleInput(Map<String, String> parameters) {
         //请求消息
-        System.out.println(new Gson().toJson(parameters));
+        logger.info("Pass Parameters: "+new Gson().toJson(parameters));
 
         String rspConent;
 

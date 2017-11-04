@@ -51,10 +51,9 @@ public abstract class AbstractHandler implements Handler {
                 msg = other(request, appConfig);
                 break;
         }
+        logger.info("RETURN MESSAGE :" + msg);
         response.getWriter().println(msg);
         response.getWriter().flush();
-
-        logger.info("RETURN MESSAGE :" + msg);
 
     }
 
