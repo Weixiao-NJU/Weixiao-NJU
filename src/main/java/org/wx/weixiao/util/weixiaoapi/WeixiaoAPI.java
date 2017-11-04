@@ -42,13 +42,13 @@ public class WeixiaoAPI {
         sendPara.put("api_key", appConfig.getApiKey());
         sendPara.put("media_id", media_id);
         sendPara.put("nonce_str", CommonUtil.randomString(32));
-        sendPara.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        sendPara.put("timestamp", String.valueOf((System.currentTimeMillis() / 1000)+20));
         String sign = SignUtil.getSinature(sendPara, appConfig.getApiSecret());
         sendPara.put("sign", sign);
         String paralog = new Gson().toJson(sendPara);
         String result = HttpRequestUtil.sendPost(MEDIA_INFO_URL, new Gson().toJson(sendPara));
         JsonObject jsonObject = new JsonParser().parse(result).getAsJsonObject();
-        logger.info("ParaLog : "+paralog+"; Result Msg: "+jsonObject.toString());
+        logger.info("ParaLog : "+paralog+"\nResult Msg: "+jsonObject.toString());
         MediaInfo mediaInfo = new MediaInfo();
         mediaInfo.setIsDelete(0);
         mediaInfo.setMediaId(media_id);
@@ -67,12 +67,14 @@ public class WeixiaoAPI {
 
 
     public static void main(String[] args) {
-        String code = "c51865390773cbcaed793dc9d356fd93";
+        //String code = "c51865390773cbcaed793dc9d356fd93";
         AppConfig appConfig = new AppConfig();
-        appConfig.setApiSecret("E4C75B2EED6AA1C8287686C58E62E2C2");
-        appConfig.setApiKey("FCFD4BB4F35E0770");
-        StudentInfo studentInfo = getStudentInfo(code, appConfig);
-        System.out.println(new Gson().toJson(studentInfo));
+        appConfig.setApiKey("2B926F2C909A943E");
+        appConfig.setApiSecret("F22DC29E0BD53B0AF9E2CBA8F8E39EF6");
+        //appConfig.setApiSecret("E4C75B2EED6AA1C8287686C58E62E2C2");
+        //appConfig.setApiKey("FCFD4BB4F35E0770");
+        //StudentInfo studentInfo = getStudentInfo(code, appConfig);
+        //System.out.println(new Gson().toJson(studentInfo));
 
         String media_id = "gh_41594420b805";
 

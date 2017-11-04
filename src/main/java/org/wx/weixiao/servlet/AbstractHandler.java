@@ -139,7 +139,7 @@ public abstract class AbstractHandler implements Handler {
             String sign = parameters.get(NameUtil.SIGNATURE);
             parameters.remove(NameUtil.SIGNATURE);
             String calSign = SignUtil.getSinature(parameters, config.getApiSecret());
-            logger.info("CalSign is :"+calSign + "; Send Sign is" + sign);
+            logger.info("CalSign is :"+calSign + "\nSend Sign is " + sign);
             if (calSign != null && sign != null && sign.equals(calSign)) {
                 Long localTime = Long.parseLong(String.valueOf(System.currentTimeMillis()).toString().substring(0, 10));
                 Long wxTime = Long.valueOf(parameters.get(NameUtil.TIMESTAMP));
