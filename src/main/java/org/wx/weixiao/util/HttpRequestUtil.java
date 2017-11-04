@@ -35,6 +35,7 @@ public class HttpRequestUtil {
             URLConnection connection = realUrl.openConnection();
             // 设置通用的请求属性
             connection.setRequestProperty("accept", "*/*");
+            connection.setRequestProperty("Charset", "UTF-8");
             connection.setRequestProperty("connection", "Keep-Alive");
             connection.setRequestProperty("user-agent",
                     "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
@@ -83,7 +84,9 @@ public class HttpRequestUtil {
         return sendPost(url, param, "UTF-8");
     }
 
-    public static String sendPostByOKHttp3(String url, String param){
+
+
+    public static String sendPostJSONByOKHttp3(String url, String param){
         //申明给服务端传递一个json串
         //创建一个OkHttpClient对象
         OkHttpClient okHttpClient = new OkHttpClient.Builder().connectTimeout(10, TimeUnit.SECONDS)
@@ -230,10 +233,6 @@ public class HttpRequestUtil {
         }
         return result;
     }
-
-    public static void main(String args[]){
-        String re =HttpRequestUtil.sendPostByOKHttp3("http://www.tuling123.com/openapi/api","{\"key\":\"81a3a2c6fd1c47679c3c01042c43eeeb\",\"info\":\"你是谁\",\"userid\":\"test\"}");
-        System.out.println(re);
-    }
+    
 
 }

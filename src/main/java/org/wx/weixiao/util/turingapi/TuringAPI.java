@@ -15,7 +15,7 @@ public class TuringAPI {
     private static Logger logger= Logger.getLogger(TuringAPI.class);
 
     public static JsonObject getQueryResult(TuringInput turingInput) throws RequestResultException{
-        String result = HttpRequestUtil.sendPostByOKHttp3(URL, new Gson().toJson(turingInput));
+        String result = HttpRequestUtil.sendPostJSONByOKHttp3(URL, new Gson().toJson(turingInput));
 
         try {
             logger.info("Turing Input : "+new Gson().toJson(turingInput)+" ; TURING RESULT : "+result);
