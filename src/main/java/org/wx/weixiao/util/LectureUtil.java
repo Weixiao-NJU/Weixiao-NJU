@@ -7,7 +7,6 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import org.wx.weixiao.Info.LectureInfo;
-import org.wx.weixiao.model.Lecture;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -22,8 +21,7 @@ import java.util.Locale;
 public class LectureUtil {
 
     private final static String LECTURE_URL =
-            "http://219.219.120.48/jiaowunew/tssDataService.do?method=getLectureList&"
-                    +"timestamp=123&sign=568d2a167570e094144a69b1771419e8";
+            "http://elite.nju.edu.cn/jiaowu/tssDataService.do?method=getLectureList&timestamp=123&sign=568d2a167570e094144a69b1771419e8";
 
     public static void main(String[] args) {
         read();

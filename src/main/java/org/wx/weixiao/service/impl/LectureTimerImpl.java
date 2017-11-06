@@ -31,7 +31,6 @@ public class LectureTimerImpl implements LectureTimerService {
 
     public void updateLectures() {
         int lastLectureId = lectureDao.getNewestLectureId();
-        System.out.println(lastLectureId);
         LoggerManager.info(logger, "one iteration for update lectures, add from: "+lastLectureId);
         List<LectureInfo> lectureInfos = LectureUtil.read(null, lastLectureId);
         //saveOrUpdate
