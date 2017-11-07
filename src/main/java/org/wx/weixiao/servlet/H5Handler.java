@@ -31,7 +31,7 @@ public class H5Handler extends AbstractHandler {
             if (parameters.get("code") == null) {
                 session.setAttribute("queryType", parameters.get("queryType"));
                 response.sendRedirect(String.format("http://weixiao.qq" +
-                        ".com/open/identity/login?media_id=%s&app_key=%s", parameters.get(NameUtil
+                        ".com/apps/school-auth/login?media_id=%s&app_key=%s", parameters.get(NameUtil
                         .MEDIAID), config.getApiKey()));
             } else {
                 String queryType = "grade";
