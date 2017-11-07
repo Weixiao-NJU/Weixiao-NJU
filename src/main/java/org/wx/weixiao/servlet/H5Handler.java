@@ -23,22 +23,25 @@ import java.util.Map;
 @Component("H5Handler")
 public class H5Handler extends AbstractHandler {
 
+    private static final String WEIXIAO_AUTH = "http://weixiao.qq.com/apps/school-auth/login?media_id=%s&app_key=%s&redirect_uri=%s";
+
     @Override
     String trigger(HttpServletRequest request, HttpServletResponse response, AppConfig config) {
         Map<String, String> parameters = (Map<String, String>) request.getAttribute(NameUtil.PARAMETERS);
         HttpSession session = request.getSession();
         try {
-            if (parameters.get("code") == null) {
+            if (parameters.get("wxcode") == null) {
                 session.setAttribute("queryType", parameters.get("queryType"));
-                response.sendRedirect(String.format("http://weixiao.qq" +
-                        ".com/apps/school-auth/login?media_id=%s&app_key=%s", parameters.get(NameUtil
-                        .MEDIAID), config.getApiKey()));
+                String redirectLink = String.format(WEIXIAO_AUTH, parameters.get(NameUtil
+                        .MEDIAID), config.getApiKey(),request.getRequestURL()+"?"+request.getQueryString());
+                logger.info("The link is redirecting to "+redirectLink);
+                response.sendRedirect(redirectLink);
             } else {
                 String queryType = "grade";
                 if (session.getAttribute("queryType") != null) {
                     queryType = (String) session.getAttribute("queryType");
                 }
-                String code = parameters.get("code");
+                String code = parameters.get("wxcode");
                 StudentInfo studentInfo = WeixiaoAPI.getStudentInfo(code, config);
                 ConnectionInfo info=new ConnectionInfo(studentInfo.getCard_num(),studentInfo.getName());
                 AppConnection con=new AppConnection();
