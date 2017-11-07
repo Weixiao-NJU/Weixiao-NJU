@@ -67,18 +67,18 @@ public class WeixiaoAPI {
 
 
     public static void main(String[] args) {
-        //String code = "c51865390773cbcaed793dc9d356fd93";
+        String code = "c51865390773cbcaed793dc9d356fd93";
         AppConfig appConfig = new AppConfig();
         appConfig.setApiKey("2B926F2C909A943E");
         appConfig.setApiSecret("F22DC29E0BD53B0AF9E2CBA8F8E39EF6");
         //appConfig.setApiSecret("E4C75B2EED6AA1C8287686C58E62E2C2");
         //appConfig.setApiKey("FCFD4BB4F35E0770");
-        //StudentInfo studentInfo = getStudentInfo(code, appConfig);
-        //System.out.println(new Gson().toJson(studentInfo));
+        StudentInfo studentInfo = getStudentInfo(code, appConfig);
+        System.out.println(new Gson().toJson(studentInfo));
 
-        String media_id = "gh_41594420b805";
+        //String media_id = "gh_41594420b805";
 
-        MediaInfo mediaInfo = getMediaInfo(media_id, appConfig);
-        System.out.println(new Gson().toJson(mediaInfo));
+        //MediaInfo mediaInfo = getMediaInfo(media_id, appConfig);
+        //System.out.println(new Gson().toJson(mediaInfo));
     }
 }

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.Map;
 
 /**
@@ -32,8 +33,9 @@ public class H5Handler extends AbstractHandler {
         try {
             if (parameters.get("wxcode") == null) {
                 session.setAttribute("queryType", parameters.get("queryType"));
+                String finalPage = request.getRequestURL()+"?"+request.getQueryString();
                 String redirectLink = String.format(WEIXIAO_AUTH, parameters.get(NameUtil
-                        .MEDIAID), config.getApiKey(),request.getRequestURL()+"?"+request.getQueryString());
+                        .MEDIAID), config.getApiKey(),URLEncoder.encode(finalPage));
                 logger.info("The link is redirecting to "+redirectLink);
                 response.sendRedirect(redirectLink);
             } else {
@@ -92,4 +94,9 @@ public class H5Handler extends AbstractHandler {
     void keywordOperation(HttpServletRequest request, RespMessage rmsg, AppConfig config) {
         rmsg.setCodeAndMsg(ErrorCodeUtil.SUCCESS, "ok");
     }
+
+    public static void main(String args[]){
+        System.out.println(URLEncoder.encode("http://219.219.120.44/h5?type=trigger&queryType=classroom&media_id=gh_41594420b805&nsukey=SIWBnignK7hj1P0UemgTp2WXY5x1Hs0VvPUHfdAUuD74Z4MmSQIa6iZHMhs3fysNIDkub%2F7%2FEx3kC1MJNS7briVXNIAxG5X307KGI72%2BQ5%2FIvJ7g4UsZkOPgCpy7veGR3FBRtGYvqUz7Yk99boZ%2FLYQ%2FUnqJbIkvZNQ3iYlbIKioIw5FFgkaxy9Wzse6rlwcD4izl6a39eEsjCjs%2BjddSw%3D%3D"));
+    }
+
 }
