@@ -24,18 +24,22 @@ import java.util.Map;
 @Component("H5Handler")
 public class H5Handler extends AbstractHandler {
 
-    private static final String WEIXIAO_AUTH = "http://weixiao.qq.com/apps/school-auth/login?media_id=%s&app_key=D442388208BEE619&redirect_uri=%s";
+    private static final String WEIXIAO_AUTH = "http://weixiao.qq.com/apps/school-auth/login?media_id=%s&app_key=%s&redirect_uri=%s";
 
     @Override
     String trigger(HttpServletRequest request, HttpServletResponse response, AppConfig config) {
         Map<String, String> parameters = (Map<String, String>) request.getAttribute(NameUtil.PARAMETERS);
         HttpSession session = request.getSession();
         try {
+          config = new AppConfig();
+          config.setApiKey("D442388208BEE619");
+          config.setApiSecret("116DC968CFAD22F0D6D747BCF012EA3C");
+          config.setToken("mytoken");
             if (parameters.get("wxcode") == null) {
                 session.setAttribute("queryType", parameters.get("queryType"));
                 String finalPage = "http://desktop.nju.edu.cn/h5?queryType="+parameters.get("queryType")+"&type=trigger";
                 String redirectLink = String.format(WEIXIAO_AUTH, parameters.get(NameUtil
-                        .MEDIAID), URLEncoder.encode(finalPage));
+                        .MEDIAID), config.getApiKey(),URLEncoder.encode(finalPage));
                 logger.info("The link is redirecting to "+redirectLink);
                 response.sendRedirect(redirectLink);
             } else {
