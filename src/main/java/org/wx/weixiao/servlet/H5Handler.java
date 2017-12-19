@@ -34,7 +34,7 @@ public class H5Handler extends AbstractHandler {
             if (parameters.get("wxcode") == null) {
                 String apiKey = "D442388208BEE619";
                 session.setAttribute("queryType", parameters.get("queryType"));
-                String finalPage = "http://desktop.nju.edu.cn/h5?queryType="+parameters.get("queryType")+"&type=trigger";
+                String finalPage = "http://219.219.120.44/h5?queryType="+parameters.get("queryType")+"&type=trigger";
                 String redirectLink = String.format(WEIXIAO_AUTH, parameters.get(NameUtil
                         .MEDIAID), apiKey,URLEncoder.encode(finalPage));
                 logger.info("The link is redirecting to "+redirectLink);
