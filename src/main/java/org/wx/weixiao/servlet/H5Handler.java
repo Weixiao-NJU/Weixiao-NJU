@@ -87,7 +87,7 @@ public class H5Handler extends AbstractHandler {
     }
 
     @Override
-    void configOperation(HttpServletRequest request, String mediaId, RespMessage rmsg, AppConfig config) {
+    void configOperation(HttpServletRequest request, String mediaId, RespMessage rmsg, AppConfig config, HttpServletResponse response) {
         rmsg.setCodeAndMsg(ErrorCodeUtil.SUCCESS, "ok");
     }
 
