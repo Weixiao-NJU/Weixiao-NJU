@@ -83,7 +83,7 @@ public class WeixiaoAPI {
 
 
     public static void main(String[] args) {
-        String code = "393701311514534900";
+        String code = "916944921514535535";
         AppConfig appConfig = new AppConfig();
         appConfig.setApiSecret("116DC968CFAD22F0D6D747BCF012EA3C");
         appConfig.setApiKey("D442388208BEE619");
