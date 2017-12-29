@@ -1,3 +1,4 @@
+<%@ page import="org.wx.weixiao.util.ServerUtil" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -8,7 +9,7 @@
 <head>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+    String basePath = request.getScheme() + "://" + ServerUtil.RESOURCE_ADDRESS + ":" + request.getServerPort()
             + path + "/";
 %>
 	<base href="<%=basePath%>">
