@@ -12,8 +12,10 @@ import org.wx.weixiao.util.NameUtil;
 import org.wx.weixiao.util.ServerUtil;
 import org.wx.weixiao.util.weixiaoapi.WeixiaoAPI;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -63,14 +65,20 @@ public class AllDispatchHandler extends AbstractHandler {
 
     @Override
     void configOperation(HttpServletRequest request, String mediaId, RespMessage rmsg, AppConfig
-            config) {
+            config, HttpServletResponse response) {
         MediaInfo mediaInfo = DAOManager.mediaInfoDao.getByMediaId(mediaId);
         MediaInfo newMediaInfo = WeixiaoAPI.getMediaInfo(mediaId, config);
         if (mediaInfo != null) {
             newMediaInfo.setMid(mediaInfo.getMid());
         }
-        request.getRequestDispatcher(String.format("%s/core/ask_config?media_id=%s", ServerUtil
-                .SERVER_ADDRESS, mediaId));
+        try {
+            request.getRequestDispatcher(String.format("%s/core/ask_config?media_id=%s", ServerUtil
+                    .SERVER_ADDRESS, mediaId)).forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         DAOManager.mediaInfoDao.saveOrUpdate(newMediaInfo);
         rmsg.setCodeAndMsg(ErrorCodeUtil.SUCCESS, "ok");
     }

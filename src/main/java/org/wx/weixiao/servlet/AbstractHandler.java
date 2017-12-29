@@ -30,19 +30,19 @@ public abstract class AbstractHandler implements Handler {
         String msg = null;
         switch (type) {
             case TypeUtil.OPEN:
-                msg = open(request, appConfig);
+                msg = open(request, response,appConfig);
                 break;
             case TypeUtil.KEYWORD:
-                msg = keyword(request, appConfig);
+                msg = keyword(request, response, appConfig);
                 break;
             case TypeUtil.CLOSE:
-                msg = close(request, appConfig);
+                msg = close(request, response, appConfig);
                 break;
             case TypeUtil.TRIGGER:
                 msg = trigger(request, response, appConfig);
                 break;
             case TypeUtil.CONFIG:
-                msg = config(request, appConfig);
+                msg = config(request, response, appConfig);
                 break;
             case TypeUtil.MONITOR:
                 msg = monitor(request, appConfig);
@@ -62,8 +62,8 @@ public abstract class AbstractHandler implements Handler {
      *
      * @param request
      */
-    public String open(HttpServletRequest request, AppConfig config) {
-        RespMessage rmsg = signChecking(request, config, TypeUtil.OPEN);
+    public String open(HttpServletRequest request, HttpServletResponse response,AppConfig config) {
+        RespMessage rmsg = signChecking(request, response, config, TypeUtil.OPEN);
         return new Gson().toJson(rmsg);
     }
 
@@ -73,8 +73,8 @@ public abstract class AbstractHandler implements Handler {
      *
      * @param request
      */
-    public String close(HttpServletRequest request, AppConfig config) {
-        RespMessage rmsg = signChecking(request, config, TypeUtil.CLOSE);
+    public String close(HttpServletRequest request, HttpServletResponse response ,AppConfig config) {
+        RespMessage rmsg = signChecking(request, response ,config, TypeUtil.CLOSE);
         return new Gson().toJson(rmsg);
     }
 
@@ -85,8 +85,8 @@ public abstract class AbstractHandler implements Handler {
      *
      * @param request
      */
-    public String config(HttpServletRequest request, AppConfig config) {
-        RespMessage rmsg = signChecking(request, config, TypeUtil.CONFIG);
+    public String config(HttpServletRequest request, HttpServletResponse response, AppConfig config) {
+        RespMessage rmsg = signChecking(request, response, config, TypeUtil.CONFIG);
         return new Gson().toJson(rmsg);
     }
 
@@ -115,8 +115,8 @@ public abstract class AbstractHandler implements Handler {
      *
      * @param request
      */
-    public String keyword(HttpServletRequest request, AppConfig config) {
-        RespMessage rmsg = signChecking(request, config, TypeUtil.KEYWORD);
+    public String keyword(HttpServletRequest request, HttpServletResponse response, AppConfig config) {
+        RespMessage rmsg = signChecking(request, response, config, TypeUtil.KEYWORD);
         return new Gson().toJson(rmsg);
     }
 
@@ -129,7 +129,7 @@ public abstract class AbstractHandler implements Handler {
      */
     abstract String other(HttpServletRequest request, AppConfig config);
 
-    private RespMessage signChecking(HttpServletRequest request, AppConfig config,
+    private RespMessage signChecking(HttpServletRequest request, HttpServletResponse response, AppConfig config,
                                      String type) {
         RespMessage rmsg = new RespMessage();
         Map<String, String> parameters = (Map<String, String>) request.getAttribute(NameUtil.PARAMETERS);
@@ -155,7 +155,7 @@ public abstract class AbstractHandler implements Handler {
                             openOperation(mediaId, rmsg, config);
                             break;
                         case TypeUtil.CONFIG:
-                            configOperation(request, mediaId, rmsg, config);
+                            configOperation(request, mediaId, rmsg, config,response);
                             break;
                         case TypeUtil.KEYWORD:
                             keywordOperation(request, rmsg, config);
@@ -190,7 +190,7 @@ public abstract class AbstractHandler implements Handler {
      */
     abstract void configOperation(HttpServletRequest request, String mediaId, RespMessage rmsg,
                                   AppConfig
-                                          config);
+                                          config,HttpServletResponse response);
 
     abstract void keywordOperation(HttpServletRequest request, RespMessage rmsg, AppConfig config);
 }
