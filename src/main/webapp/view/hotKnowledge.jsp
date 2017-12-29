@@ -47,7 +47,7 @@
         <c:forEach items="${list}" var="info" varStatus="vs">
             <div class="weui-cells">
 
-                <a class="weui-cell weui-cell_access" href="knowledgeBase?id=${info.id}">
+                <a class="weui-cell weui-cell_access" href="core/knowledgeBase?id=${info.id}">
                     <div class="weui-cell__hd">
                         <img src="<%=resourceUrl%>/image/knowledge.svg" alt="" style="width:20px;margin-right:5px;display:block"></div>
                     <div class="weui-cell__bd  weui-cell-bd-text">

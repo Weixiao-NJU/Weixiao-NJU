@@ -44,13 +44,13 @@
                 <div class="weui-cells">
                     <c:choose>
                         <c:when test="${type.toString()=='UQ'}">
-                            <a class="weui-cell weui-cell_access" href="answer_question?encrypt=${info.id}">
+                            <a class="weui-cell weui-cell_access" href="core/answer_question?encrypt=${info.id}">
                         </c:when>
                         <c:when test="${type.toString()=='ONDUTY'}">
-                            <a class="weui-cell weui-cell_access" href="answer_question?encrypt=${info.id}">
+                            <a class="weui-cell weui-cell_access" href="core/answer_question?encrypt=${info.id}">
                         </c:when>
                         <c:otherwise>
-                        <a class="weui-cell weui-cell_access" href="get_reply?encrypt=${info.id}">
+                        <a class="weui-cell weui-cell_access" href="core/get_reply?encrypt=${info.id}">
                         </c:otherwise>
                     </c:choose>
                         <div class="weui-cell__hd">
