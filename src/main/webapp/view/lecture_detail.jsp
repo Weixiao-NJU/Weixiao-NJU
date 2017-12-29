@@ -9,6 +9,7 @@
 %>
 <head>
     <%
+        String resourceUrl = "http://"+ ServerUtil.RESOURCE_ADDRESS;
         String path = request.getContextPath();
         String basePath = request.getScheme() + "://" + ServerUtil.RESOURCE_ADDRESS + ":" + request.getServerPort()
                 + path + "/";
@@ -16,9 +17,9 @@
     <base href="<%=basePath%>">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" type="text/css" href="../css/weui.css" />
-    <link rel="stylesheet" type="text/css" href="../css/lecture.css" />
-    <link rel="stylesheet" type="text/css" href="../css/lecture_detail.css" />
+    <link rel="stylesheet" type="text/css" href="<%=resourceUrl%>/css/weui.css" />
+    <link rel="stylesheet" type="text/css" href="<%=resourceUrl%>/css/lecture.css" />
+    <link rel="stylesheet" type="text/css" href="<%=resourceUrl%>/css/lecture_detail.css" />
     <title><%=title%></title>
 </head>
 <body>
@@ -43,10 +44,10 @@
                                 人表示感兴趣！
                                 <c:choose>
                                     <c:when test="${isInterest}">
-                                        <img src="../image/loved.svg" class="interest-button">
+                                        <img src="<%=resourceUrl%>/image/loved.svg" class="interest-button">
                                     </c:when>
                                     <c:otherwise>
-                                        <img onclick="interest()" src="../image/love.svg" class="interest-button">
+                                        <img onclick="interest()" src="<%=resourceUrl%>/image/love.svg" class="interest-button">
                                     </c:otherwise>
                                 </c:choose>
                             </p>
@@ -78,6 +79,6 @@
         <p class="weui-footer__text">Copyright &copy; 2016-2017 nju</p>
     </div>
 </body>
-<script src="../js/jquery-3.1.1.min.js"></script>
-<script src="../js/lecture.js"></script>
+<script src="<%=resourceUrl%>/js/jquery-3.1.1.min.js"></script>
+<script src="<%=resourceUrl%>/js/lecture.js"></script>
 </html>

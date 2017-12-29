@@ -1,9 +1,13 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"  pageEncoding="utf-8" %>
+<%@ page import="org.wx.weixiao.util.ServerUtil" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html>
 <head>
+    <%
+        String resourceUrl = "http://"+ ServerUtil.RESOURCE_ADDRESS;
+    %>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" type="text/css" href="../css/weui.css" />
+    <link rel="stylesheet" type="text/css" href="<%=resourceUrl%>/css/weui.css" />
     <title>警告页</title>
 </head>
 <body>

@@ -6,15 +6,16 @@
 <head>
 
     <%
+        String resourceUrl = "http://"+ ServerUtil.RESOURCE_ADDRESS;
         String path = request.getContextPath();
-        String basePath = request.getScheme() + "://" + ServerUtil.RESOURCE_ADDRESS + ":" + request.getServerPort()
+        String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
                 + path + "/";
     %>
     <base href="<%=basePath%>">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<link rel="stylesheet" type="text/css" href="../css/weui.css" />
-    <link rel="stylesheet" type="text/css" href="../css/list.css">
+	<link rel="stylesheet" type="text/css" href="<%=resourceUrl%>/css/weui.css" />
+    <link rel="stylesheet" type="text/css" href="<%=resourceUrl%>/css/list.css">
 	<title>信息页</title>
 </head>
 
@@ -53,7 +54,7 @@
                         </c:otherwise>
                     </c:choose>
                         <div class="weui-cell__hd">
-                            <img src="../image/question.svg" alt="" style="width:20px;margin-right:5px;display:block">
+                            <img src="<%=resourceUrl%>/image/question.svg" alt="" style="width:20px;margin-right:5px;display:block">
                         </div>
                         <div class="weui-cell__bd weui-cell-bd-text">
                             <p>问题：</p>
@@ -62,7 +63,7 @@
                     </a>
                     <div class="weui-cell">
                         <div class="weui-cell__hd">
-                            <img src="../image/key.svg" alt="" style="width:20px;margin-right:5px;display:block">
+                            <img src="<%=resourceUrl%>/image/key.svg" alt="" style="width:20px;margin-right:5px;display:block">
                         </div>
                         <div class="weui-cell__bd">
                             <p>关键字：</p>

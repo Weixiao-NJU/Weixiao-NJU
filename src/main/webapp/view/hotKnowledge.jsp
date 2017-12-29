@@ -11,15 +11,16 @@
 <html>
 <head>
     <%
+        String resourceUrl = "http://"+ ServerUtil.RESOURCE_ADDRESS;
         String path = request.getContextPath();
-        String basePath = request.getScheme() + "://" + ServerUtil.RESOURCE_ADDRESS + ":" + request.getServerPort()
+        String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
                 + path + "/";
     %>
     <base href="<%=basePath%>">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" type="text/css" href="../css/weui.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/list.css">
+    <link rel="stylesheet" type="text/css" href="<%=resourceUrl%>/css/weui.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=resourceUrl%>/css/list.css">
     <title>热门问答列表</title>
 </head>
 
@@ -48,7 +49,7 @@
 
                 <a class="weui-cell weui-cell_access" href="knowledgeBase?id=${info.id}">
                     <div class="weui-cell__hd">
-                        <img src="../image/knowledge.svg" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                        <img src="<%=resourceUrl%>/image/knowledge.svg" alt="" style="width:20px;margin-right:5px;display:block"></div>
                     <div class="weui-cell__bd  weui-cell-bd-text">
                         <p>问题：</p>
                     </div>
@@ -56,7 +57,7 @@
                 </a>
                 <div class="weui-cell">
                     <div class="weui-cell__hd">
-                        <img src="../image/hot.svg" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                        <img src="<%=resourceUrl%>/image/hot.svg" alt="" style="width:20px;margin-right:5px;display:block"></div>
                     <div class="weui-cell__bd">
                         <p>热度：</p>
                     </div>

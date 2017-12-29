@@ -8,14 +8,15 @@
 %>
 <head>
 <%
-    String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + ServerUtil.RESOURCE_ADDRESS + ":" + request.getServerPort()
-			+ path + "/";
-%>
+	  String resourceUrl = "http://"+ServerUtil.RESOURCE_ADDRESS;
+		  String path = request.getContextPath();
+		  String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+	+ path + "/";
+	%>
 	<base href="<%=basePath%>">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<link rel="stylesheet" type="text/css" href="../css/weui.css" />
+	<link rel="stylesheet" type="text/css" href="<%=resourceUrl%>/css/weui.css" />
 	<title><%=title%></title>
 </head>
 
@@ -51,7 +52,7 @@
 		<p class="weui-footer__text">Copyright &copy; 2016-2017 nju</p>
 	</div>
 </body>
-<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="<%=resourceUrl%>/js/jquery-3.1.1.min.js"></script>
 <script>
     $("textarea").focus(function(){$(".weui-footer").hide();});
     $("textarea").blur(function(){$(".weui-footer").show();});

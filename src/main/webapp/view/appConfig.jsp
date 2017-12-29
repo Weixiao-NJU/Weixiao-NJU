@@ -9,17 +9,18 @@
 %>
 <head>
 <%
+    String resourceUrl = "http://"+ ServerUtil.RESOURCE_ADDRESS;
     String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + ServerUtil.RESOURCE_ADDRESS + ":" + request.getServerPort()
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/";
 %>
 	<base href="<%=basePath%>">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../css/wx.css" />
-    <link rel="stylesheet" type="text/css" href="../css/pageGroup.css" />
-	<link rel="stylesheet" type="text/css" href="../css/appConfig.css" />
+    <link rel="stylesheet" type="text/css" href="<%=resourceUrl%>/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="<%=resourceUrl%>/css/wx.css" />
+    <link rel="stylesheet" type="text/css" href="<%=resourceUrl%>/css/pageGroup.css" />
+	<link rel="stylesheet" type="text/css" href="<%=resourceUrl%>/css/appConfig.css" />
 	<title><%=title%></title>
 
 </head>
@@ -425,7 +426,7 @@
                     <input type="hidden" id="lecture_end_page">
 
                     <div id="loading">
-                        <img src="../image/loading.gif">
+                        <img src="<%=resourceUrl%>/image/loading.gif">
                     </div>
                     <br>
                     <!-------------------------------------------分页----------------------------------------------------------------->
@@ -452,12 +453,12 @@
 
 
 </body>
-<script src="../js/jquery-3.1.1.min.js"></script>
-<script src="../js/jquery.form.js"></script>
-<script src="../js/pageGroup.js"></script>
-<script src="../js/pageGroup-1.js"></script>
-<script src="../js/pageGroup-2.js"></script>
-<script src="../js/appConfig.js"></script>
+<script src="<%=resourceUrl%>/js/jquery-3.1.1.min.js"></script>
+<script src="<%=resourceUrl%>/js/jquery.form.js"></script>
+<script src="<%=resourceUrl%>/js/pageGroup.js"></script>
+<script src="<%=resourceUrl%>/js/pageGroup-1.js"></script>
+<script src="<%=resourceUrl%>/js/pageGroup-2.js"></script>
+<script src="<%=resourceUrl%>/js/appConfig.js"></script>
 <script>
     function tab(pid){
         var tabs=["tab1","tab2","tab3"];
