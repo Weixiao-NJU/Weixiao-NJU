@@ -6,6 +6,6 @@ package org.wx.weixiao.util;
 public class ServerUtil {
     public static final String SERVER_ADDRESS = "desktop.nju.edu.cn";
 
-  //  public static final String SERVER_ADDRESS = "219.219.120.44";
+    public static final String IMAGE_SERVER_ADDRESS = "219.219.120.44";
 
 }
