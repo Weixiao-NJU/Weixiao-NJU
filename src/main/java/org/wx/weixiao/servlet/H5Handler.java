@@ -43,6 +43,7 @@ public class H5Handler extends AbstractHandler {
                 if (session.getAttribute("queryType") != null) {
                     queryType = (String) session.getAttribute("queryType");
                 }
+                logger.info("Config:::"+config.getApiKey()+":"+config.getApiSecret());
                 String code = parameters.get("wxcode");
                 StudentInfo studentInfo = WeixiaoAPI.getStudentInfo(code, config);
                 ConnectionInfo info=new ConnectionInfo(studentInfo.getCard_num(),studentInfo.getName());
@@ -94,6 +95,6 @@ public class H5Handler extends AbstractHandler {
     void keywordOperation(HttpServletRequest request, RespMessage rmsg, AppConfig config) {
         rmsg.setCodeAndMsg(ErrorCodeUtil.SUCCESS, "ok");
     }
-    
+
 
 }
