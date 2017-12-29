@@ -9,7 +9,6 @@ import org.wx.weixiao.service.AllDispatchCoreService;
 import org.wx.weixiao.servlet.conf.AppConfig;
 import org.wx.weixiao.util.ErrorCodeUtil;
 import org.wx.weixiao.util.NameUtil;
-import org.wx.weixiao.util.ServerUtil;
 import org.wx.weixiao.util.weixiaoapi.WeixiaoAPI;
 
 import javax.servlet.ServletException;
@@ -72,8 +71,7 @@ public class AllDispatchHandler extends AbstractHandler {
             newMediaInfo.setMid(mediaInfo.getMid());
         }
         try {
-            request.getRequestDispatcher(String.format("%s/core/ask_config?media_id=%s", ServerUtil
-                    .SERVER_ADDRESS, mediaId)).forward(request,response);
+            request.getRequestDispatcher(String.format("core/ask_config?media_id=%s", mediaId)).forward(request,response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
