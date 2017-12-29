@@ -1,6 +1,7 @@
 package org.wx.weixiao.util.weixiaoapi;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.apache.log4j.Logger;
@@ -18,20 +19,35 @@ import java.util.Map;
  * Created by Daniel on 2016/12/28.
  */
 public class WeixiaoAPI {
-    private static final String USER_INFO_URL = "http://weixiao.qq.com/open/identity/user_info";
+    private static final String ACCESSTOEKN_URL = "http://weixiao.qq.com/apps/school-auth/access-token";
+    private static final String USER_INFO_URL = "http://weixiao.qq.com/apps/school-auth/user-info";
+    private static final String USER_PROFILE_URL = "http://weixiao.qq.com/apps/school-auth/user-profile";
     private static final String MEDIA_INFO_URL = "http://weixiao.qq.com/common/get_media_info";
     private static Logger logger= Logger.getLogger(WeixiaoAPI.class);
 
 
-    public static StudentInfo getStudentInfo(String code, AppConfig appConfig) {
+    public static String getAccessToken(String code, AppConfig appConfig) {
         Map<String, String> sendPara = new HashMap<>();
         sendPara.put("app_key", appConfig.getApiKey());
-        sendPara.put("code", code);
-        sendPara.put("nonce_str", CommonUtil.randomString(32));
-        sendPara.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        String sign = SignUtil.getSinature(sendPara, appConfig.getApiSecret());
-        sendPara.put("sign", sign);
-        String result = HttpRequestUtil.sendPost(USER_INFO_URL, new Gson().toJson(sendPara));
+        sendPara.put("wxcode", code);
+        sendPara.put("app_secret", appConfig.getApiSecret());
+        String result = HttpRequestUtil.sendPostJSONByOKHttp3(ACCESSTOEKN_URL, new Gson().toJson(sendPara));
+        JsonElement jsonObject = new JsonParser().parse(result);
+        System.out.println(result);
+        return jsonObject.getAsJsonObject().get("access_token").getAsString();
+    }
+
+    public static StudentInfo getStudentInfo(String code, AppConfig appConfig){
+        String access_token = getAccessToken(code,appConfig);
+        return getStudentInfo(access_token);
+    }
+
+
+    public static StudentInfo getStudentInfo(String token) {
+        Map<String, String> sendPara = new HashMap<>();
+        sendPara.put("token", token);
+        String result = HttpRequestUtil.sendPostJSONByOKHttp3(USER_INFO_URL, new Gson().toJson(sendPara));
+        System.out.println(result);
         StudentInfo studentInfo = new Gson().fromJson(result, StudentInfo.class);
         return studentInfo;
     }
@@ -67,15 +83,13 @@ public class WeixiaoAPI {
 
 
     public static void main(String[] args) {
-        String code = "c51865390773cbcaed793dc9d356fd93";
+        String code = "180819841514533974";
         AppConfig appConfig = new AppConfig();
-        appConfig.setApiKey("2B926F2C909A943E");
-        appConfig.setApiSecret("F22DC29E0BD53B0AF9E2CBA8F8E39EF6");
-        //appConfig.setApiSecret("E4C75B2EED6AA1C8287686C58E62E2C2");
-        //appConfig.setApiKey("FCFD4BB4F35E0770");
-        StudentInfo studentInfo = getStudentInfo(code, appConfig);
-        System.out.println(new Gson().toJson(studentInfo));
-
+        appConfig.setApiSecret("116DC968CFAD22F0D6D747BCF012EA3C");
+        appConfig.setApiKey("D442388208BEE619");
+        String token = getAccessToken(code,appConfig);
+        System.out.println(token);
+        getStudentInfo(token);
         //String media_id = "gh_41594420b805";
 
         //MediaInfo mediaInfo = getMediaInfo(media_id, appConfig);
