@@ -25,9 +25,9 @@ public class Util {
     public static void analyseParameters(HttpServletRequest request) {
         Map<String, String> parameters = new HashMap<>();
         String jsonInput = "";
-        StringBuilder logMess = new StringBuilder("Original Parameters:");
+        String logMess = "Original Parameters:\n";
         for (Object obj : request.getParameterMap().keySet()) {
-            logMess.append(obj).append("=").append(new Gson().toJson(request.getParameterMap().get(obj))).append("\n");
+            logMess += obj + "=" + new Gson().toJson(request.getParameterMap().get(obj)) + "\n";
             if (!CommonUtil.isJson((String) obj)) {
                 parameters.put((String) obj, ((String[]) request.getParameterMap().get(obj))[0]);
             } else {
@@ -47,7 +47,7 @@ public class Util {
         }
         parameters.remove("type");
         request.setAttribute(NameUtil.PARAMETERS, parameters);
-        logMess.append("After Processing Parameters:").append(new Gson().toJson(parameters));
+        logMess += "After Processing Parameters:" + new Gson().toJson(parameters);
 
         logger.info(logMess);
     }

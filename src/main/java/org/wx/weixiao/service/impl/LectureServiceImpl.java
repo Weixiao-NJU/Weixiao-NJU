@@ -84,7 +84,7 @@ public class LectureServiceImpl implements LectureService{
     @Override
     public int getTotalPage(boolean all,int pageSize) {
         int recordNum=lectureDao.getTotalRecordNum();
-        if(!all){
+        if(all==false){
             recordNum=lectureDao.fetchFutureList().size();
         }
         int totalPage=recordNum/pageSize;

@@ -139,9 +139,9 @@ public abstract class AbstractHandler implements Handler {
             String sign = parameters.get(NameUtil.SIGNATURE);
             parameters.remove(NameUtil.SIGNATURE);
             String calSign = SignUtil.getSinature(parameters, config.getApiSecret());
-            logger.info("CalSign is :"+calSign + " ; Send Sign is " + sign);
+            logger.info("CalSign is :"+calSign + "\nSend Sign is " + sign);
             if (calSign != null && sign != null && sign.equals(calSign)) {
-                Long localTime = Long.parseLong(String.valueOf(System.currentTimeMillis()).substring(0, 10));
+                Long localTime = Long.parseLong(String.valueOf(System.currentTimeMillis()).toString().substring(0, 10));
                 Long wxTime = Long.valueOf(parameters.get(NameUtil.TIMESTAMP));
                 long interval = localTime - wxTime;
                 //long interval = System.currentTimeMillis() / 1000 - Long.valueOf(parameters.get(NameUtil.TIMESTAMP));
@@ -163,7 +163,7 @@ public abstract class AbstractHandler implements Handler {
                     }
 
                 } else {
-                    logger.error("Request interface failed, Interval is not between 0 and 10. Interval : "+interval);
+                    logger.error("Request interface failed, Interval is not between 0 and 100. Interval : "+interval);
                     rmsg.setCodeAndMsg(ErrorCodeUtil.INTERFACE_FAILED, "request interface failed");
                 }
             } else {
