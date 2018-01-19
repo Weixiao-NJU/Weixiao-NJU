@@ -18,12 +18,13 @@ import javax.servlet.http.HttpServlet;
  */
 public class StartUpServlet extends HttpServlet {
 
+    private static Logger logger=Logger.getLogger(StartUpServlet.class);
     @Override
     public void init() throws ServletException {
         super.init();
         ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(this.getServletContext());
         ApplicationContextHelper.setApplicationContext(ctx);
-        System.out.println("server started");
+        logger.info("StartUp Servlet is working now.");
 
         DAOManager.mediaInfoDao.getMediaInfos().forEach(e -> {
             String mediaId = e.getMediaId();
@@ -38,6 +39,7 @@ public class StartUpServlet extends HttpServlet {
 
         TaskEntity timerEmail = TaskFactory.createLectureEmailTask();
         TaskEntity lectureUpdate = TaskFactory.createLectureUpdateTask();
+
         TaskManager.registerTask(timerEmail);
         TaskManager.registerTask(lectureUpdate);
 

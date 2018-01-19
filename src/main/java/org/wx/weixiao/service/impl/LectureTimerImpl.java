@@ -31,7 +31,7 @@ public class LectureTimerImpl implements LectureTimerService {
 
     public void updateLectures() {
         int lastLectureId = lectureDao.getNewestLectureId();
-        LoggerManager.info(logger, "one iteration for update lectures, add from: "+lastLectureId);
+        LoggerManager.info(logger, "One iteration for update lectures, add from: "+lastLectureId);
         List<LectureInfo> lectureInfos = LectureUtil.read(null, lastLectureId);
         //saveOrUpdate
         for (LectureInfo lectureInfo:lectureInfos) {
@@ -39,7 +39,7 @@ public class LectureTimerImpl implements LectureTimerService {
             lecture.setInterestNum(0);
             lecture.setIsDelete(0);
             lectureDao.save(lecture);
-            LoggerManager.info(logger, "add one lecture"+lecture.getTitle());
+            LoggerManager.info(logger, "Add one lecture"+lecture.getTitle());
         }
     }
 
