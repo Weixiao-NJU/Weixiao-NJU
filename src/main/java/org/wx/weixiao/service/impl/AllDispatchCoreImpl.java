@@ -83,8 +83,7 @@ public class AllDispatchCoreImpl implements AllDispatchCoreService {
             Map<String, String> parameters = MessageUtil.parseXml(request);
             return handleInput(parameters);
         } catch (Exception e) {
-            logger.error("Exception happens here :"+e.getMessage());
-            e.printStackTrace();
+            logger.error("Exception happens :",e);
         }
         return null;
     }
